@@ -20,7 +20,6 @@
 			.bround:hover {
 				border-color:black;
 			}
-			
 			.Th2 {
 				text-indent:2em;
 				font-size:1.5em
@@ -34,6 +33,9 @@
 				padding:0;
 				line-height:0%;
 				color:dimgray;
+			}
+			.Num {
+				visibility:hidden;
 			}
 			.picAlink {
 				text-align:center;
@@ -54,24 +56,54 @@
 			}
 			.wclink {
 				margin:0;
-				padding:0;
 				font-size:1em;
 				display:inline-block;
+				position:relative;
+			}
+			.wclink .wclinkTip {
+				visibility:hidden;
+				width: 162px;
+				padding:5px;
+				font-size:0.8em;
+				background-color:black;
+				color:white;
+				text-align:center;
+				border-radius:5px;
+				position:absolute;
+				z-index:1;
+				bottom:150%;
+				left:50%;
+				margin-left:-81px;
+			}
+			.wclink .wclinkTip:after {
+				content: "";
+				top: 100%;
+				left: 50%;
+				position: absolute;
+				margin-left: -5px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: black transparent transparent transparent;
+			}
+			.wclink:hover .wclinkTip {
+				visibility:visible;
 			}
 		</style>
 	</head>
 	<body>
-		<div style="color:#eeeeee">v0.1.12</div>
+		<div style="color:#eeeeee">v0.1.13</div>
 		<h1 style="text-align: center; letter-spacing:1vw; line-height:3em; font-size:3em">mushnest</h1>
 		<div style="color:#eeeeee">·_·<br></div>
 		<div class="bround">
 		<h2 class="Th2">像素方块头</h2>
 		<div class="vis">当前版本：1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-		<div style="color:#eeeeee">1</div>
+		<div class="Num">1</div>
 		<div class="picAlink">
 		<div class="pics"><img class="imgs" src="/images/qrcode-BH-b.png" width="125px" height="125px"></div>
 		<div class="bor">&nbsp;&nbsp;</div>
-		<div class="wclink">表情链接：https://w.url.cn/s/ATOMSVI#wechat_redirect<br>（复制并在微信中打开该链接）</div>
+		<div class="wclink">表情链接：https://w.url.cn/s/ATOMSVI#wechat_redirect
+		<span class="wclinkTip">复制并在微信中打开该链接</span>
+		</div>
 		</div>
 		<div><br></div>
 		</div>
@@ -79,11 +111,13 @@
 		<div class="bround">
 		<h2 class="Th2">像素方块头2</h2>
 		<div class="vis">当前版本：1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-		<div style="color:#eeeeee">2</div>
+		<div class="Num">2</div>
 		<div class="picAlink">
 		<div class="pics"><img src="/images/qrcode-BH2-b.png" width="125px" height="125px"></div>
 		<div class="bor">&nbsp;&nbsp;</div>
-		<div class="wclink">表情链接：https://w.url.cn/s/A7Tp8VK#wechat_redirect<br>（复制并在微信中打开该链接）</div>
+		<div class="wclink">表情链接：https://w.url.cn/s/A7Tp8VK#wechat_redirect
+		<span class="wclinkTip">复制并在微信中打开该链接</span>
+		</div>
 		</div>
 		<div><br></div>
 		</div>
@@ -91,11 +125,13 @@
 		<div class="bround">
 		<h2 class="Th2">像素猪粉粉</h2>
 		<div class="vis">当前版本：1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-		<div style="color:#eeeeee">3</div>
+		<div class="Num">3</div>
 		<div class="picAlink">
 		<div class="pics"><img src="/images/qrcode-PPP-b.png" width="125px" height="125px"></div>
 		<div class="bor">&nbsp;&nbsp;</div>
-		<div class="wclink">表情链接：https://w.url.cn/s/AjxJcf8#wechat_redirect<br>（复制并在微信中打开该链接）</div>
+		<div class="wclink">表情链接：https://w.url.cn/s/AjxJcf8#wechat_redirect
+		<span class="wclinkTip">复制并在微信中打开该链接</span>
+		</div>
 		</div>
 		<div><br></div>
 		</div>
@@ -103,7 +139,7 @@
 		<div class="bround">
 		<h2 class="Th2">像素方块头3</h2>
 		<div class="vis">COMING SOON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-		<div style="color:#eeeeee">4</div>
+		<div class="Num">4</div>
 		</div>
 		<div style="color:#eeeeee">·_·<br><br></div>
 		<footer style="text-align:center; color:gray; font-size:0.8em">Copyright © 2020 mushnest. All Rights Reserved.</footer>
