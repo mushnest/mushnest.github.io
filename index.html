@@ -8,6 +8,25 @@
 				background-color:#eeeeee;
 				font-family:sans-serif;
 			}
+			header {
+				margin:0;
+				padding:0;
+				background-color:rgba(255,255,255,0.65);
+				width:100%;
+				height:4em;
+				top:0;
+				left:0;
+				position:fixed;
+				border-bottom:1px solid lightgray;
+				-webkit-box-shadow:0 1px 3.5px lightgray;
+				box-shadow:0 1px 3.5px lightgray;
+				backdrop-filter:blur(5px);
+				-webkit-backdrop-filter:blur(5px);
+				z-index:1000;
+			}
+			.funny {
+				visibility:hidden;
+			}
 			.bround {
 				border:1px solid lightgray;
 				border-radius:25px;
@@ -23,26 +42,24 @@
 			.Th2 {
 				text-indent:2em;
 				font-size:1.5em;
-				letter-spacing:0.1em;
+				letter-spacing:0.2em;
 			}
 			.vis {
 				text-indent:3em;
 				font-size:1em;
+				letter-spacing:0.15em;
 				height:0.8em;
 				line-height:0.8em;
 				margin:0;
 				padding:0;
 				line-height:0%;
 				color:dimgray;
-				letter-spacing:0.1em;
-				vertical-align:middle;
 			}
 			.Num {
 				visibility:hidden;
 			}
 			.picAlink {
-				margin:0;
-				margin-left:7em;
+				margin:0 6.5em;
 				padding:0;
 				clear:both;
 				position:relative;
@@ -61,7 +78,7 @@
 			.words {
 				position:absolute;
 				margin:auto;
-				padding:0 7em 0 0;
+				padding:0;
 				display:inline-block;
 				top:50%;
 				-webkit-transform: translateY(-50%);
@@ -94,7 +111,7 @@
 				border-radius:5px;
 				position:absolute;
 				z-index:1;
-				bottom:125%;
+				bottom:150%;
 				left:50%;
 				margin-left:-98px;
 			}
@@ -120,16 +137,21 @@
 		</style>
 	</head>
 	<body>
-		<div style="color:#eeeeee">v1.0.2</div>
-		<h1 style="text-align: center; letter-spacing:1vw; line-height:3em; font-size:3em">mushnest</h1>
-		<div style="color:#eeeeee">·_·<br></div>
+		<header>
+			<h1 style="text-align:left; letter-spacing:0.25em; font-size:2.2em; position:absolute; height:2.2em; top:0%; margin-top:0.2em; left:1em">mushnest</h1>
+			<div style="display:none">v1.2.0</div>
+		</header>
+		<div style="height:4em"></div>
+		<div class="funny">o_o<br><br></div>
+		<h2 style="text-align:center; letter-spacing:0.5em; font-size:2.2em;">表情专辑</h2>
+		<div class="funny">·_·<br><br></div>
 		<div class="bround">
-			<h2 class="Th2">像素方块头</h2>
+			<h3 class="Th2">像素方块头</h3>
 			<div class="vis">当前版本：1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
 			<div class="Num">1</div>
 			<div class="picAlink">
 				<div class="pics">
-					<img class="imgs" src="/images/qrcode-BH-c.png" alt="二维码_像素方块头" width="125px" height="125px">
+					<img class="imgs" src="/images/qrcode-BH-c.png" width="125px" height="125px">
 				</div>
 				<div class="bor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 				<div class="words">
@@ -145,15 +167,14 @@
 			</div>
 			<div><br></div>
 		</div>
-		<div style="color:#eeeeee">·_·<br><br></div>
+		<div class="funny">·_·<br><br></div>
 		<div class="bround">
-			<h2 class="Th2">像素方块头2</h2>
+			<h3 class="Th2">像素方块头2</h3>
 			<div class="vis">当前版本：1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
 			<div class="Num">2</div>
 			<div class="picAlink">
-				<div class="pics">
-					<img src="/images/qrcode-BH2-c.png" alt="二维码_像素方块头2" width="125px" height="125px">
-				</div>
+				<div class="pics"><img src="/images/qrcode-BH2-c.png" width="125px" height="125px">
+			</div>
 				<div class="bor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 				<div class="words">
 					<div>我还是很方（huang），还是只有一个头，所以还是叫方块头～</div>
@@ -168,14 +189,14 @@
 			</div>
 		<div><br></div>
 		</div>
-		<div style="color:#eeeeee">·_·<br><br></div>
+		<div class="funny">·_·<br><br></div>
 		<div class="bround">
-			<h2 class="Th2">像素猪粉粉</h2>
+			<h3 class="Th2">像素猪粉粉</h3>
 			<div class="vis">当前版本：1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
 			<div class="Num">3</div>
 			<div class="picAlink">
 				<div class="pics">
-					<img src="/images/qrcode-PPP-c.png" alt="二维码_像素猪粉粉" width="125px" height="125px">
+					<img src="/images/qrcode-PPP-c.png" width="125px" height="125px">
 				</div>
 				<div class="bor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 				<div class="words">
@@ -191,9 +212,9 @@
 			</div>
 		<div><br></div>
 		</div>
-		<div style="color:#eeeeee">·_·<br><br></div>
+		<div class="funny">·_·<br><br></div>
 		<div class="bround">
-		<h2 class="Th2">像素方块头3</h2>
+		<h3 class="Th2">像素方块头3</h3>
 		<div class="vis">COMING SOON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
 		<div class="Num">4</div>
 		</div>
