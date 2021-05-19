@@ -1,270 +1,171 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>mushnest</title>
-		<style>
-			body {
-				background-color:#eeeeee;
-				font-family:sans-serif;
-			}
-			header {
-				margin:0;
-				padding:0;
-				background-color:rgba(255,255,255,0.65);
-				width:100%;
-				height:4em;
-				top:0;
-				left:0;
-				position:fixed;
-				border-bottom:1px solid lightgray;
+    <head>
+        <meta charset="utf-8">
+        <title>mushnest</title>
+        <style>
+            body{
+                background-color: #eeeeee;
+                font-family: sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            header{
+                margin: 0;
+                padding: 0;
+                background-color:rgba(255,255,255,0.65);
+                width: 100%;
+                height: 48px;
+                top: 0;
+                left: 0;
+                position: fixed;
+                border-bottom:1px solid lightgray;
 				-webkit-box-shadow:0 1px 3.5px lightgray;
 				box-shadow:0 1px 3.5px lightgray;
 				backdrop-filter:blur(5px);
 				-webkit-backdrop-filter:blur(5px);
 				z-index:1000;
-				display:table;
-			}
-			li {
-				float:right;
-				text-align:center;
-				padding:0 1em;
-				font-size:1em;
-				color:dimgray;
-				transition:color 0.55s;
-				-webkit-transition:color 0.55s;
-			}
-			li:hover {
-				color:#373737;
-			}
-			.funny {
-				visibility:hidden;
-			}
-			.bround {
-				border:1px solid lightgray;
-				border-radius:25px;
-				width:75%;
-				margin: 0 auto;
-				clear:both;
-				padding:0;
-				transition:border-color 0.55s;
-			}
-			.bround:hover {
-				border-color:black;
-			}
-			.Th3 {
-				padding:0;
-				margin:0;
-				margin-top:0.35em;
-				height:2.2em;
-				line-height:2.2em;
-				text-indent:2em;
-				font-size:1.5em;
-				letter-spacing:0.2em;
-			}
-			.vis {
-				text-indent:3em;
-				font-size:1em;
-				letter-spacing:0.15em;
-				height:0.8em;
-				line-height:0.8em;
-				margin:0;
-				padding:0;
-				color:dimgray;
-			}
-			.Num {
-				visibility:hidden;
-			}
-			.picAlink {
-				margin:0 6.5em;
-				padding:0;
-				clear:both;
-				position:relative;
-			}
-			.pics {
-				margin:0;
-				padding:0;
-				display:inline-block;
-				vertical-align:middle;
-			}
-			.bor {
-				margin:0;
-				padding:0;
-				display:inline-block;
-			}
-			.words {
-				position:absolute;
-				margin:auto;
-				padding:0;
-				display:inline-block;
-				top:50%;
-				-webkit-transform: translateY(-50%);
-				-ms-transform: translateY(-50%);
-				transform: translateY(-50%);
-				letter-spacing:0.1em;
-			}
-			.wordNone {
-				margin:0;
-				padding:0.35em 0;
-			}
-			.divi {
-				border-bottom:0.5px solid lightgray;
-				background:gray;
-				border-radius:1px;
-			}
-			.wclink {
-				margin:0;
-				font-size:1em;
-				position:relative;
-			}
-			.wclink .wclinkTip {
-				visibility:hidden;
-				width: 196px;
-				padding:5px;
-				font-size:0.8em;
-				background-color:black;
-				color:white;
-				text-align:center;
-				border-radius:5px;
-				position:absolute;
-				z-index:1;
-				bottom:150%;
-				left:50%;
-				margin-left:-98px;
-			}
-			.wclink .wclinkTip:after {
-				content: "";
-				top: 100%;
-				left: 50%;
-				position: absolute;
-				margin-left: -5px;
-				border-width: 5px;
-				border-style: solid;
-				border-color: black transparent transparent transparent;
-			}
-			.wclink:hover .wclinkTip {
-				visibility:visible;
-			}
-			.afterWords {
-				margin:0;
-				padding:0;
-				float:right;
-				width:3em;
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-			<h1 style="text-align:left; letter-spacing:0.25em; font-size:2.2em; color:#373737; margin:0; padding:0; display:table-cell; vertical-align:middle; text-indent:1em;">mushnest</h1>
-			<div style="display:none">v1.2.4</div>
-			<ul style="list-style-type:none; margin:0; padding:0; display:table-cell; vertical-align:middle">
-				<li style="margin-right:1.2em">赞赏（暂未开放）</li>
-			</ul>
-		</header>
-		<div style="height:4em"></div>
-		<div class="funny">o_o<br><br></div>
-		<h2 style="text-align:center; letter-spacing:0.5em; font-size:2.2em;">表情专辑</h2>
-		<div class="funny">·_·<br><br></div>
-		<div class="bround">
-			<h3 class="Th3">像素方块头</h3>
-			<div class="vis">当前版本：1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-			<div class="Num">1</div>
-			<div class="picAlink">
-				<div class="pics">
-					<img class="imgs" src="/images/qrcode-BH-c.png" width="125px" height="125px">
-				</div>
-				<div class="bor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-				<div class="words">
-					<div>因为我长得很方（huang），又只有一个头，所以叫方块头～</div>
-					<div class="wordNone"></div>
-					<div class="divi"></div>
-					<div class="wordNone"></div>
-					<div class="wclink">表情链接：https://w.url.cn/s/ATOMSVI#wechat_redirect
-						<span class="wclinkTip">复制并在微信中打开该链接</span>
-					</div>
-				</div>
-				<div class="afterWords">&nbsp;</div>
-			</div>
-			<div><br></div>
-		</div>
-		<div class="funny">·_·<br><br></div>
-		<div class="bround">
-			<h3 class="Th3">像素方块头2</h3>
-			<div class="vis">当前版本：1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-			<div class="Num">2</div>
-			<div class="picAlink">
-				<div class="pics"><img src="/images/qrcode-BH2-c.png" width="125px" height="125px">
-			</div>
-				<div class="bor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-				<div class="words">
-					<div>我还是很方（huang），还是只有一个头，所以还是叫方块头～</div>
-					<div class="wordNone"></div>
-					<div class="divi"></div>
-					<div class="wordNone"></div>
-					<div class="wclink">表情链接：https://w.url.cn/s/A7Tp8VK#wechat_redirect
-						<span class="wclinkTip">复制并在微信中打开该链接</span>
-					</div>
-				</div>
-				<div class="afterWords">&nbsp;</div>
-			</div>
-		<div><br></div>
-		</div>
-		<div class="funny">·_·<br><br></div>
-		<div class="bround">
-			<h3 class="Th3">像素猪粉粉</h3>
-			<div class="vis">当前版本：1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-			<div class="Num">3</div>
-			<div class="picAlink">
-				<div class="pics">
-					<img src="/images/qrcode-PPP-c.png" width="125px" height="125px">
-				</div>
-				<div class="bor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-				<div class="words">
-					<div>我是一只爱学习的、可爱的、粉色的小猪猪，我的名字叫猪粉粉～</div>
-					<div class="wordNone"></div>
-					<div class="divi"></div>
-					<div class="wordNone"></div>
-					<div class="wclink">表情链接：https://w.url.cn/s/AjxJcf8#wechat_redirect
-						<span class="wclinkTip">复制并在微信中打开该链接</span>
-					</div>
-				</div>
-				<div class="afterWords">&nbsp;</div>
-			</div>
-		<div><br></div>
-		</div>
-		<div class="funny">·_·<br><br></div>
-		<div class="bround">
-			<h3 class="Th3">像素方块头3</h3>
-			<div class="vis">当前版本：1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-			<div class="Num">4</div>
-			<div class="picAlink">
-				<div class="pics">
-					<img class="imgs" src="/images/qrcode-BH3.png" width="125px" height="125px">
-				</div>
-				<div class="bor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-				<div class="words">
-					<div>我是方块头，我也有我的方恼～</div>
-					<div class="wordNone"></div>
-					<div class="divi"></div>
-					<div class="wordNone"></div>
-					<div class="wclink">表情链接：https://w.url.cn/s/AIKvayN#wechat_redirect
-						<span class="wclinkTip">复制并在微信中打开该链接</span>
-					</div>
-				</div>
-				<div class="afterWords">&nbsp;</div>
-			</div>
-			<div><br></div>
-		</div>
-		<div class="funny">·_·<br><br></div>
-		<div class="bround">
-			<h3 class="Th3">像素方块头4</h3>
-			<div class="vis">COMING SOON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表情数量：16</div>
-			<div class="Num">5</div>
-		</div>
-		<div class="funny">·_·<br><br></div>
-		<footer style="text-align:center; color:gray; font-size:0.8em">
-			<div>Copyright © 2020 mushnest. All Rights Reserved.</div>
-			<div class="funny">8_8</div>
-		</footer>
-	</body>
+                display: table;
+            }
+            li{
+                float: right;
+                margin: 0 16px;
+                padding: 0;
+                color: dimgray;
+                text-align: center;
+                transition:color 0.35s;
+				-webkit-transition:color 0.35s;
+            }
+            li:hover{
+                color:#373737;
+            }
+            .mainDiv{
+                border: 1px solid lightgray;
+                border-radius: 25px;
+                margin: 0 auto 32px;
+                padding: 0;
+                width: 720px;
+                transition: border-color 0.35s;
+            }
+            .mainDiv:hover{
+                border-color: black;
+            }
+            .muName{
+                margin: 24px 32px 0;
+                padding: 0;
+            }
+            .numName{
+                margin: 0 32px;
+                color: dimgray;
+            }
+            .chilDiv{
+                margin: 16px 0 24px 32px;
+                padding: 0;
+                width: 688px;
+                white-space: nowrap;
+            }
+            .imgDiv{
+                margin: 0;
+                padding: 0;
+                width: 96px;
+                display: table-cell;
+            }
+            .qrIma{
+                margin: 0 0 0 32px;
+                padding: 0;
+                width: 96px;
+                height: 96px;
+                vertical-align: middle;
+            }
+            .wordDiv{
+                margin: 0 128px 0 0;
+                padding: 0;
+                width: 560px;
+                display: table-cell;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div style="font-size: 24px; color:#373737; font-weight: bold; margin: 0; padding: 0; display: table-cell; text-indent: 16px; vertical-align: middle;">mushnest</div>
+            <ul style="list-style-type:none; margin:0; padding:0; display:table-cell; vertical-align:middle;">
+                <li style="margin: 0 6px 0 16px;">赞赏（暂未开放）</li>
+            </ul>
+        </header>
+        <div style="margin: 0; padding: 0; top: 0; left: 0; right: 0; height: 48px;"></div>
+        <h1 style="text-align: center; margin: 48px 0; padding: 0;">表情专辑</h1>
+        <div class="mainDiv">
+            <h2 class="muName">
+                像素方块头
+            </h2>
+            <div class="numName">表情数量：16</div>
+            <div class="chilDiv">
+                <div class="imgDiv"><img class="qrIma" src="images/qrcode_BH1.png"></div>
+                <div class="wordDiv">因为我长得很方（huang），又只有一个头，所以叫方块头～</div>
+            </div>
+        </div>
+        <div class="mainDiv">
+            <h2 class="muName">
+                像素方块头2
+            </h2>
+            <div class="numName">表情数量：16</div>
+            <div class="chilDiv">
+                <div class="imgDiv"><img class="qrIma" src="images/qrcode_BH2.png"></div>
+                <div class="wordDiv">我还是很方（huang），还是只有一个头，所以还是叫方块头～</div>
+            </div>
+        </div>
+        <div class="mainDiv">
+            <h2 class="muName">
+                像素猪粉粉
+            </h2>
+            <div class="numName">表情数量：16</div>
+            <div class="chilDiv">
+                <div class="imgDiv"><img class="qrIma" src="images/qrcode_PPP1.png"></div>
+                <div class="wordDiv">我是一只爱学习的、可爱的、粉色的小猪猪，我的名字叫猪粉粉～</div>
+            </div>
+        </div>
+        <div class="mainDiv">
+            <h2 class="muName">
+                像素方块头3
+            </h2>
+            <div class="numName">表情数量：16</div>
+            <div class="chilDiv">
+                <div class="imgDiv"><img class="qrIma" src="images/qrcode_BH3.png"></div>
+                <div class="wordDiv">我是方块头，我也有我的方恼～</div>
+            </div>
+        </div>
+        <div class="mainDiv">
+            <h2 class="muName">
+                像素猪粉粉2
+            </h2>
+            <div class="numName">表情数量：16</div>
+            <div class="chilDiv">
+                <div class="imgDiv"><img class="qrIma" src="images/qrcode_PPP2.png"></div>
+                <div class="wordDiv">吃好、玩好、喝好、睡好，美好生活每一天～</div>
+            </div>
+        </div>
+        <div class="mainDiv">
+            <h2 class="muName">
+                像素方块头4
+            </h2>
+            <div class="numName">表情数量：16</div>
+            <div class="chilDiv">
+                <div class="imgDiv"><img class="qrIma" src="images/qrcode_BH4.png"></div>
+                <div class="wordDiv">从前有个方块头，现在，Ta还叫方块头～</div>
+            </div>
+        </div>
+        <div class="mainDiv">
+            <h2 class="muName">
+                ? ? ? ? ?
+            </h2>
+            <div class="numName">表情数量：16</div>
+            <div style="margin: 16px auto 24px auto; padding: 0; text-align: center; letter-spacing: 1px;">
+                — COMING SOON —
+            </div>
+        </div>
+        <footer style="text-align: center; color: gray; font-size: 13px;">
+            <div style="margin: 0 auto 10px;">Copyright © 2020 - 2021 mushnest. All Rights Reserved.</div>
+        </footer>
+    </body>
 </html>
