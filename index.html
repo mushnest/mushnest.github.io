@@ -6,14 +6,15 @@
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
         <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png">
+        <meta name="theme-color" content="#ef857d" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#332322" media="(prefers-color-scheme: dark)">
         <style>
-            body{
-                background-color: #eeeeee;
+            body {
                 font-family: sans-serif;
                 margin: 0;
                 padding: 0;
             }
-            header{
+            header {
                 margin: 0;
                 padding: 0;
                 background-color:rgba(255,255,255,0.65);
@@ -22,65 +23,165 @@
                 top: 0;
                 left: 0;
                 position: fixed;
-                border-bottom:1px solid lightgray;
-				-webkit-box-shadow:0 1px 3.5px lightgray;
-				box-shadow:0 1px 3.5px lightgray;
+                border-bottom:1px solid white;
+				-webkit-box-shadow:0 2px 10px 2.5px lightgray;
+				box-shadow:0 2px 10px 2.5px lightgray;
 				backdrop-filter:blur(5px);
 				-webkit-backdrop-filter:blur(5px);
 				z-index:1000;
                 display: table;
             }
-            li{
-                float: right;
-                margin: 0 16px;
+            .logo {
+                margin: 0;
                 padding: 0;
-                color: dimgray;
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .logo a {
+                margin: 0 0 0 16px;
+                padding: 0;
+                text-decoration: none;
+                font-size: 24px;
+                color: rgba(35, 35, 35, 0.9);
+                font-weight: bold;
+            }
+            .headUl {
+                list-style-type:none;
+                margin:0;
+                padding:0;
+                display: table-cell;
+                vertical-align:middle;
+            }
+            .headLi {
+                float: right;
+                margin: 0 12px 0 1px;
+                padding: 0 16px;
+                background-color: #ef857d;
+                color: rgba(0, 0, 0, 0.79);
+                vertical-align: middle;
                 text-align: center;
-                transition:color 0.35s;
-				-webkit-transition:color 0.35s;
+                border-radius: 10px;
+                display: table;
+                transition: background-color 0.25s;
+				-webkit-transition: background-color 0.25s;
             }
-            li:hover{
-                color:#373737;
+            .headLi:hover {
+                background-color: #fb6b5a;
             }
-            .mainDiv{
-                border: 1px solid lightgray;
+            .headLi.about {
+                width: 32px;
+                table-layout: fixed;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                transition: width 0.35s;
+                -webkit-transition: width 0.35s;
+            }
+            .headLi.about:hover {
+                width: 300px;
+            }
+            .liText {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                padding: 3px 0 3px 0;
+            }
+            .liText.about {
+                width: 32px;
+                transition: color 0.25s;
+				-webkit-transition: color 0.25s;
+            }
+            .headLi:hover .liText.about {
+                color: rgba(255, 255, 255, 0.95);
+            }
+            .liText.email {
+                color: rgba(0, 0, 0, 0);
+                transition: color 0.25s;
+				-webkit-transition: color 0.25s;
+            }
+            .headLi:hover .liText.email{
+                color: rgba(255, 255, 255, 0.95);
+            }
+            .headLi.goCoffee {
+                padding: 0;
+            }
+            .liText.goCofe a {
+                padding: 0 16px;
+                text-decoration: none;
+                color: rgba(0, 0, 0, 0.79);
+                transition: color 0.25s;
+				-webkit-transition: color 0.25s;
+            }
+            .headLi:hover .liText.goCofe a {
+                color: rgba(255, 255, 255, 0.95);
+            }
+            .mainDiv {
+                background-color: white;
                 border-radius: 25px;
                 margin: 0 auto 32px;
-                padding: 0;
+                padding: 12px 0 12px 0;
                 width: 720px;
-                transition: border-color 0.35s;
+                box-shadow:0 0 5px lightgray;
+                -webkit-box-shadow:0 0 5px lightgray;
+                transition-property: box-shadow, transform;
+	            transition-duration: 0.35s;
+                -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+                -webkit-transition-duration: 0.35s;
             }
-            .mainDiv:hover{
-                border-color: black;
+            .mainDiv:hover {
+                box-shadow:0 2px 10px 1.5px lightgray;
+                -webkit-box-shadow:0 2px 10px 1.5px lightgray;
+                transform: translateY(-5%);
+	            -ms-transform: translateY(-5%);
+	            -webkit-transform: translateY(-5%);
             }
-            .muName{
-                margin: 24px 32px 0;
+            .mainDiv:hover .leftLine {
+                width: 8px;
+            }
+            .mainDiv:hover .muName {
+                padding-left: 7px;
+            }
+            .leftLine {
+                margin: 0 0 0 32px;
+                width: 0;
+                background-color: #b95651;
+                color: rgba(0, 0, 0, 0);
+                border-radius: 2px;
+                display: inline-block;
+                transition: width 0.25s;
+                -webkit-transition: width 0.25s;
+            }
+            .muName {
+                margin: 18px 0 0 0;
                 padding: 0;
+                display: inline-block;
+                transition: padding-left 0.25s;
+                -webkit-transition: padding-left 0.25s;
             }
-            .numName{
-                margin: 0 32px;
+            .numName {
+                margin: 0 32px 0;
                 color: dimgray;
             }
-            .chilDiv{
-                margin: 16px 0 24px 32px;
+            .chilDiv {
+                margin: 16px 0 20px 32px;
                 padding: 0;
                 width: 688px;
                 white-space: nowrap;
             }
-            .imgDiv{
+            .imgDiv {
                 margin: 0;
                 padding: 0;
                 width: 96px;
                 display: table-cell;
             }
-            .qrIma{
+            .qrIma {
                 margin: 0 0 0 32px;
                 padding: 0;
                 width: 96px;
                 height: 96px;
                 vertical-align: middle;
             }
-            .wordDiv{
+            .wordDiv {
                 margin: auto 128px auto 0;
                 padding: 0;
                 width: 560px;
@@ -88,19 +189,72 @@
                 text-align: center;
                 vertical-align: middle;
             }
+            .mainDiv.coffee {
+                background-color: #ffeef0;
+            }
+
+            @media (prefers-color-scheme: dark){
+                :root {
+                    background: #111111;
+                    color: #d1d1d1;
+                }
+                header {
+                    background-color: rgba(255,255,255,0.1);
+                    border-bottom: 1px solid gray;
+                    -webkit-box-shadow:0 2px 10px 2px black;
+				    box-shadow:0 2px 10px 2px black;
+                }
+                .logo a {
+                    color: rgba(225, 225, 225, 0.9);
+                }
+                .headLi {
+                    background-color: #c67c79;
+                    color: rgba(0, 0, 0, 0.9);
+                    transition: background-color 0.25s;
+                    -webkit-transition: background-color 0.25s;
+                    transition: color 0.25s;
+				    -webkit-transition: color 0.25s;
+                }
+                .headLi:hover {
+                    background-color: #d08985;
+                    color: rgba(255, 255, 255, 0.95);
+                }
+                .mainDiv {
+                    background-color: #272727;
+                    box-shadow:0 0 5px black;
+                    -webkit-box-shadow:0 0 5px black;
+                    transition-property: box-shadow, transform;
+                    transition-duration: 0.35s;
+                    -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+                    -webkit-transition-duration: 0.35s;
+                }
+                .mainDiv:hover {
+                    box-shadow:0 2.5px 10px 1.2px black;
+                    -webkit-box-shadow:0 2.5px 10px 1.2px black;
+                }
+                .leftLine {
+                    background-color: #c67c79;
+                }
+                .mainDiv.coffee {
+                    background-color: #231b1a;
+                }
+            }
         </style>
     </head>
     <body>
         <header>
-            <div style="font-size: 24px; color:#373737; font-weight: bold; margin: 0; padding: 0; display: table-cell; text-indent: 16px; vertical-align: middle;">mushnest</div>
-            <ul style="list-style-type:none; margin:0; padding:0; display:table-cell; vertical-align:middle;">
-                <li style="margin: 0 6px 0 16px;">赞赏（暂未开放）</li>
+            <div class="logo">
+                <a href="/">mushnest</a>
+            </div>
+            <ul class="headUl">
+                <li class="headLi about" style="cursor: text;"><span class="liText about">关于</span><span class="liText email">｜联系邮箱：mushnest@outlook.com</span></li>
+                <li class="headLi goCoffee"><span class="liText goCofe"><a href="#cofe">赞赏</a></span></li>
             </ul>
         </header>
-        <div style="margin: 0; padding: 0; top: 0; left: 0; right: 0; height: 48px; visibility: hidden;">v2.1.1</div>
-        <h1 style="text-align: center; margin: 48px 0; padding: 0;">表情专辑</h1>
+        <div style="margin: 0; padding: 0; top: 0; left: 0; right: 0; height: 48px; visibility: hidden;">v3.0.2</div>
+        <h1 style="text-align: center; margin: 56px 0; padding: 0;">表情专辑</h1>
         <div class="mainDiv">
-            <h2 class="muName">
+            <h2 class="leftLine">1</h2><h2 class="muName">
                 像素方块头
             </h2>
             <div class="numName">表情数量：16</div>
@@ -110,7 +264,7 @@
             </div>
         </div>
         <div class="mainDiv">
-            <h2 class="muName">
+            <h2 class="leftLine">2</h2><h2 class="muName">
                 像素方块头2
             </h2>
             <div class="numName">表情数量：16</div>
@@ -120,7 +274,7 @@
             </div>
         </div>
         <div class="mainDiv">
-            <h2 class="muName">
+            <h2 class="leftLine">3</h2><h2 class="muName">
                 像素猪粉粉
             </h2>
             <div class="numName">表情数量：16</div>
@@ -130,7 +284,7 @@
             </div>
         </div>
         <div class="mainDiv">
-            <h2 class="muName">
+            <h2 class="leftLine">4</h2><h2 class="muName">
                 像素方块头3
             </h2>
             <div class="numName">表情数量：16</div>
@@ -140,7 +294,7 @@
             </div>
         </div>
         <div class="mainDiv">
-            <h2 class="muName">
+            <h2 class="leftLine">5</h2><h2 class="muName">
                 像素猪粉粉2
             </h2>
             <div class="numName">表情数量：16</div>
@@ -150,7 +304,7 @@
             </div>
         </div>
         <div class="mainDiv">
-            <h2 class="muName">
+            <h2 class="leftLine">6</h2><h2 class="muName">
                 像素方块头4
             </h2>
             <div class="numName">表情数量：16</div>
@@ -160,12 +314,22 @@
             </div>
         </div>
         <div class="mainDiv">
-            <h2 class="muName">
+            <h2 class="leftLine">7</h2><h2 class="muName">
                 ? ? ? ? ?
             </h2>
             <div class="numName">表情数量：16</div>
             <div style="margin: 16px auto 24px auto; padding: 0; text-align: center; letter-spacing: 1px;">
                 — COMING SOON —
+            </div>
+        </div>
+        <div class="mainDiv coffee" id="cofe">
+            <h2 class="leftLine">0</h2><h2 class="muName">
+                赞赏 &#127873;
+            </h2>
+            <div class="numName">赞赏途径</div>
+            <div class="chilDiv">
+                <div class="imgDiv"><img class="qrIma" src="images/qrcode_mushnest.png"></div>
+                <div class="wordDiv">微信扫码左侧二维码，进入任意专辑页面进行赞赏吧</div>
             </div>
         </div>
         <footer style="text-align: center; color: gray; font-size: 13px;">
