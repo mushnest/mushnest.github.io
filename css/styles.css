@@ -1,0 +1,217 @@
+/* version v5.0.2 */
+body {
+    padding: 0;
+    margin: 0;
+}
+header {
+    padding: 0;
+    margin: 0;
+    /* header 长宽 */
+    width: 100%;
+    height: 4.3em;
+     /* header 位置 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* header flex */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* header 外观 */
+    background-color: rgba(255, 255, 255, 0.65);
+    border-bottom: 0.1em solid white;
+    box-shadow: 0 0.2em 0.55em 0.25em rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 0 0.2em 0.55em 0.25em rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(0.35em);
+    -webkit-backdrop-filter: blur(0.35em);
+    /* header 顺序 */
+    z-index: 999;
+}
+.LOGO {
+    margin-left: 0.39em;
+    /* LOGO 文字 */
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: left;
+    /* LOGO 外观 */
+    color: rgba(35, 35, 35, 0.9);
+}
+.headerButton {
+    /* headerButton flex */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.headerButton a {
+    padding: 0.5em 1.2em;
+    margin-right: 1.2em;
+    /* a under headerbutton flex under */
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* a under headerbutton 文字 */
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    /* a under headerbutton 外观 */
+    /* background-color: #ef857d; */
+    border: 0.12em solid rgba(0, 0, 0, 0.6);
+    border-radius: 2em;
+    /* a under headerbutton 动画 */
+    transition: all 0.25s linear;
+    -webkit-transition: all 0.25s linear;
+}
+.headerButton a:hover {
+    background-color: #fb6b5a;
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.35);
+}
+.indexVersion {
+    padding: 0;
+    margin: 0;
+    /* indexVersion 长宽 */
+    width: 100%;
+    height: 4em;
+    /* indexVersion 位置 */
+    top: 0;
+    left: 0;
+    /* indexVersion 外观 */
+    visibility: hidden;
+}
+h1 {
+    padding: 0;
+    margin: 3em 0;
+    /* h1 文字 */
+    font-size: 3em;
+    text-align: center;
+}
+.mainContainer {
+    padding: 3em 0;
+    margin: 0 auto 3em;
+    /* mainContaine 长宽 */
+    /* width: auto; */
+    max-width: 50%;
+    min-width: 30em;
+    /* mainContaine grid */
+    display: grid;
+    grid: 
+        'emptySpace1 QRcode emptyMiddle mainName emptySpace2' auto 
+        'emptySpace1 QRcode emptyMiddle mainNumber emptySpace2' auto 
+        'emptySpace1 QRcode emptyMiddle rowLine emptySpace2' auto
+        'emptySpace1 QRcode emptyMiddle mainDescription emptySpace2' 1fr 
+        /1fr 10em 2em 50% 1fr;
+    /* grid-column-gap: 2.5em; */
+    justify-items: center;
+    justify-content: space-evenly;
+    /* mainContaine 外观 */
+    background-color: white;
+    border-radius: 3em;
+    box-shadow: 0 0 0.5em lightgray;
+    -webkit-box-shadow: 0 0 0.5em lightgray;
+    /* mainContainer 动画 */
+    /* transition-property: box-shadow, transform;
+    -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+    transition-duration: 0.35s;
+    -webkit-transition-duration: 0.35s; */
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+.mainContainer:hover {
+    box-shadow: 0 0 0.6em 0.12em lightgray;
+    -webkit-box-shadow: 0 0 0.6em 0.12em lightgray;
+    transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    -webkit-transform: translateY(-5%);
+}
+.mainContainer:hover img {
+    box-shadow: 0 0 0.5em 0.2em lightgray;
+    -webkit-box-shadow: 0 0 0.5em 0.2em lightgray;
+}
+.mainContainer:hover .rowLineClass {
+    padding: 0 50%;
+    margin-top: 0.2em;
+    height: 0.2em;
+    background-color: #b95651;
+}
+.mainContainer > img {
+    margin: 0;
+    /* img 长宽 */
+    width: 10em;
+    height: 10em;
+    /* img grid */
+    grid-area: QRcode;
+    /* img 动画 */
+    transition: all 0.6s;
+    -webkit-transition: all 0.6s;
+}
+.mainContainer > h2 {
+    padding: 0;
+    margin: 0;
+    /* h2 under mainContainer grid under */
+    grid-area: mainName;
+    align-self: start;
+    -webkit-align-self: start;
+    justify-self: start;
+    -webkit-justify-self: start;
+    /* h2 under mainContainer 文字 */
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+}
+.mainContainer > div:nth-of-type(1) {
+    margin: 0;
+    /* div:nth-of-type(1) grid */
+    grid-area: mainNumber;
+    align-self: start;
+    -webkit-align-self: start;
+    justify-self: start;
+    -webkit-justify-self: start;
+    /* div:nth-of-type(1) 外观 */
+    color: dimgray;
+}
+.mainContainer > div:nth-of-type(2) {
+    padding: 0;
+    margin: 0;
+    /* rowLineClass 长宽 */
+    height: 0;
+    /* rowLineClass grid */
+    grid-area: rowLine;
+    align-self: start;
+    -webkit-align-self: start;
+    justify-self: start;
+    -webkit-justify-self: start;
+    /* rowLineClass 外观 */
+    border-radius: 0.2em;
+    /* rowLineClass 动画 */
+    transition: all 0.35s;
+    -webkit-transition: all 0.35s;
+}
+.mainContainer > div:nth-of-type(3) {
+    padding: 0;
+    margin: 0;
+    /* div:nth-of-type(3) grid */
+    grid-area: mainDescription;
+    align-self: center;
+    -webkit-align-self: center;
+    justify-self: start;
+    -webkit-justify-self: start;
+    /* div:nth-of-type(3) 文字 */
+    font-size: 1.3em;
+}
+#cafe {
+    background-color: #ffeef0;
+}
+.mainContainer > * {
+    /* background-color: azure;
+    border: 1px solid black; */
+}
+footer {
+    padding: 0;
+    margin-bottom: 3em;
+    font-size: 0.9em;
+    color: gray;
+    text-align: center;
+}
