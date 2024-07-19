@@ -1,7 +1,8 @@
-/* version v5.0.2 */
+/* version v5.0.3 */
 body {
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
 }
 header {
     padding: 0;
@@ -94,7 +95,7 @@ h1 {
     /* mainContaine 长宽 */
     /* width: auto; */
     max-width: 50%;
-    min-width: 30em;
+    min-width: 20em;
     /* mainContaine grid */
     display: grid;
     grid: 
@@ -143,6 +144,8 @@ h1 {
     height: 10em;
     /* img grid */
     grid-area: QRcode;
+    align-self: center;
+    -webkit-align-self: center;
     /* img 动画 */
     transition: all 0.6s;
     -webkit-transition: all 0.6s;
