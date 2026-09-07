@@ -1,17 +1,28 @@
-/* version v5.0.5 */
+/* version v5.0.5 responsive */
+:root {
+    /* 导航栏 / 隐形占位块高度：桌面接近旧值，手机上保证可点击高度 */
+    --header-height: clamp(52px, 2.7vmax, 64px);
+    /* 卡片纵向间距（卡片内上下内边距、卡片间距） */
+    --card-space: clamp(18px, 3.5vmin, 40px);
+    /* 卡片圆角 */
+    --card-radius: clamp(16px, 3.7vmin, 40px);
+    /* 二维码尺寸及所在列宽：手机上不小于 96px，便于扫码 */
+    --qr-size: clamp(96px, 12vmin, 160px);
+}
+
 body {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
 }
+
 header {
     padding: 0;
     margin: 0;
     /* header 长宽 */
     width: 100%;
-    /* height: 4.6vmin; */
-    height: 2.7vmax;
-     /* header 位置 */
+    height: var(--header-height);
+    /* header 位置 */
     position: fixed;
     top: 0;
     left: 0;
@@ -22,24 +33,27 @@ header {
     align-items: center;
     /* header 外观 */
     background-color: rgba(255, 255, 255, 0.65);
-    border-bottom: 0.1vmin solid white;
-    box-shadow: 0 0.2vmin 0.55vmin 0.3vmin rgba(0, 0, 0, 0.22);
-    -webkit-box-shadow: 0 0.2vmin 0.55vmin 0.3vmin rgba(0, 0, 0, 0.22);
-    backdrop-filter: blur(0.35rem);
-    -webkit-backdrop-filter: blur(0.35rem);
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     /* header 顺序 */
     z-index: 999;
 }
+
 .LOGO {
-    margin-left: 1.2vmin;
+    margin-left: clamp(12px, 1.2vmin, 16px);
     /* LOGO 文字 */
-    font-size: 2.5vmin;
+    font-size: clamp(20px, 2.5vmin, 27px);
     font-weight: bold;
     text-decoration: none;
     text-align: left;
+    white-space: nowrap;
     /* LOGO 外观 */
     color: rgba(35, 35, 35, 0.9);
 }
+
 .headerButton {
     /* headerButton flex */
     display: flex;
@@ -47,99 +61,83 @@ header {
     justify-content: flex-end;
     align-items: center;
 }
+
 .headerButton a {
-    padding: 0.5vmin 1.2vmin;
-    margin-right: 1.2vmin;
-    /* a under headerbutton flex under */
+    padding: clamp(5px, 0.5vmin, 8px) clamp(12px, 1.2vmin, 16px);
+    margin-right: clamp(12px, 1.2vmin, 16px);
+    /* a under headerbutton flex */
     flex-grow: 1;
     flex-shrink: 1;
     /* a under headerbutton 文字 */
-    font-size: 1.2vmin;
+    font-size: clamp(12px, 1.2vmin, 13px);
     font-weight: 600;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.6);
     text-align: center;
+    white-space: nowrap;
     /* a under headerbutton 外观 */
-    /* background-color: #ef857d; */
-    border: 0.12vmin solid rgba(0, 0, 0, 0.6);
-    border-radius: 2vmin;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: clamp(10px, 2vmin, 20px);
     /* a under headerbutton 动画 */
     transition: all 0.25s linear;
     -webkit-transition: all 0.25s linear;
 }
+
 .headerButton a:hover {
     background-color: #fb6b5a;
     color: rgba(255, 255, 255, 0.9);
     border-color: rgba(0, 0, 0, 0.35);
 }
+
 .indexVersion {
     padding: 0;
     margin: 0;
-    /* indexVersion 长宽 */
+    /* indexVersion 长宽：与固定导航等高，防止内容被遮挡 */
     width: 100%;
-    height: 4.6vmin;
-    /* indexVersion 位置 */
-    top: 0;
-    left: 0;
+    height: var(--header-height);
     /* indexVersion 外观 */
     visibility: hidden;
 }
+
 h1 {
     padding: 0;
-    margin: 10vmin auto;
+    margin: clamp(40px, 10vmin, 108px) auto;
     /* h1 文字 */
-    font-size: 3.9vmin;
+    font-size: clamp(30px, 3.9vmin, 42px);
     text-align: center;
 }
+
 .mainContainer {
-    padding: 3.5vmin 0;
-    margin: 0 auto 3.5vmin;
-    /* mainContaine 长宽 */
-    width: 50vw;
-    /* max-width: 50vw; */
-    min-width: 80vmin;
-    /* mainContaine grid */
+    /* 窄屏默认：卡片接近全宽，左右各留 1rem */
+    padding: var(--card-space) 0;
+    margin: 0 auto var(--card-space);
+    width: calc(100% - 2rem);
+    min-width: 0;
+    /* mainContainer grid：二维码在左，文字在右 */
     display: grid;
-    grid: 
-        'emptySpace1 QRcode emptyMiddle mainName emptySpace2' auto 
-        'emptySpace1 QRcode emptyMiddle mainNumber emptySpace2' auto 
-        'emptySpace1 QRcode emptyMiddle rowLine emptySpace2' auto
-        'emptySpace1 QRcode emptyMiddle mainDescription emptySpace2' 1fr 
-        /1fr 12vmin 2.2vmin 50% 1fr;
-    /* grid-column-gap: 2.5em; */
+    grid-template-columns: var(--qr-size) clamp(12px, 2.2vmin, 24px) minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        'QRcode emptyMiddle mainName'
+        'QRcode emptyMiddle mainNumber'
+        'QRcode emptyMiddle rowLine'
+        'QRcode emptyMiddle mainDescription';
     justify-items: center;
-    justify-content: space-evenly;
-    /* mainContaine 外观 */
+    /* mainContainer 外观 */
     background-color: white;
-    border-radius: 3.7vmin;
-    box-shadow: 0 0 0.55vmin lightgray;
-    -webkit-box-shadow: 0 0 0.55vmin lightgray;
+    border-radius: var(--card-radius);
+    box-shadow: 0 0 clamp(4px, 0.55vmin, 8px) lightgray;
+    -webkit-box-shadow: 0 0 clamp(4px, 0.55vmin, 8px) lightgray;
     /* mainContainer 动画 */
     transition: all 0.25s;
     -webkit-transition: all 0.25s;
 }
-.mainContainer:hover {
-    box-shadow: 0 0 0.65vmin 0.15vmin lightgray;
-    -webkit-box-shadow: 0 0 0.65vmin 0.15vmin lightgray;
-    transform: translateY(-5%);
-    -ms-transform: translateY(-5%);
-    -webkit-transform: translateY(-5%);
-}
-.mainContainer:hover img {
-    box-shadow: 0 0 0.55vmin 0.25vmin lightgray;
-    -webkit-box-shadow: 0 0 0.55vmin 0.25vmin lightgray;
-}
-.mainContainer:hover .rowLineClass {
-    padding: 0 50%;
-    margin-top: 0.25vmin;
-    height: 0.22vmin;
-    background-color: #b95651;
-}
+
 .mainContainer > img {
     margin: 0;
     /* img 长宽 */
-    width: 12vmin;
-    height: 12vmin;
+    width: var(--qr-size);
+    height: var(--qr-size);
     /* img grid */
     grid-area: QRcode;
     align-self: center;
@@ -148,20 +146,23 @@ h1 {
     transition: all 0.6s;
     -webkit-transition: all 0.6s;
 }
+
 .mainContainer > h2 {
     padding: 0;
     margin: 0;
-    /* h2 under mainContainer grid under */
+    /* h2 under mainContainer grid */
     grid-area: mainName;
     align-self: start;
     -webkit-align-self: start;
     justify-self: start;
     -webkit-justify-self: start;
     /* h2 under mainContainer 文字 */
-    font-size: 2.5vmin;
+    font-size: clamp(18px, 2.5vmin, 27px);
     font-weight: 600;
     text-align: center;
+    overflow-wrap: anywhere;
 }
+
 .mainContainer > div:nth-of-type(1) {
     margin: 0;
     /* div:nth-of-type(1) grid */
@@ -171,10 +172,11 @@ h1 {
     justify-self: start;
     -webkit-justify-self: start;
     /* div:nth-of-type(1) 文字 */
-    font-size: 1.3vmin;
+    font-size: clamp(13px, 1.3vmin, 14px);
     /* div:nth-of-type(1) 外观 */
     color: dimgray;
 }
+
 .mainContainer > div:nth-of-type(2) {
     padding: 0;
     margin: 0;
@@ -187,11 +189,12 @@ h1 {
     justify-self: start;
     -webkit-justify-self: start;
     /* rowLineClass 外观 */
-    border-radius: 0.3vmin;
+    border-radius: 4px;
     /* rowLineClass 动画 */
     transition: all 0.35s;
     -webkit-transition: all 0.35s;
 }
+
 .mainContainer > div:nth-of-type(3) {
     padding: 0;
     margin: 0;
@@ -202,19 +205,56 @@ h1 {
     justify-self: start;
     -webkit-justify-self: start;
     /* div:nth-of-type(3) 文字 */
-    font-size: 1.5vmin;
+    font-size: clamp(14px, 1.5vmin, 16px);
+    overflow-wrap: anywhere;
 }
+
 #cafe {
     background-color: #ffeef0;
 }
-.mainContainer > * {
-    /* background-color: azure;
-    border: 1px solid black; */
-}
+
 footer {
     padding: 0;
-    margin-bottom: 3.5vmin;
-    font-size: 1.1vmin;
+    margin-bottom: var(--card-space);
+    font-size: clamp(11px, 1.1vmin, 12px);
     color: gray;
     text-align: center;
+}
+
+/* 桌面 / 较宽屏：沿用原有“约 50vw、高度比例不足时以 80vmin 为下限”的卡片宽度 */
+@media (min-width: 720px) {
+    .mainContainer {
+        width: 50vw;
+        min-width: min(80vmin, calc(100% - 2rem));
+        grid-template-columns: 1fr var(--qr-size) clamp(12px, 2.2vmin, 24px) minmax(0, 50%) 1fr;
+        grid-template-rows: auto auto auto 1fr;
+        grid-template-areas:
+            'emptySpace1 QRcode emptyMiddle mainName emptySpace2'
+            'emptySpace1 QRcode emptyMiddle mainNumber emptySpace2'
+            'emptySpace1 QRcode emptyMiddle rowLine emptySpace2'
+            'emptySpace1 QRcode emptyMiddle mainDescription emptySpace2';
+    }
+}
+
+/* hover 悬浮效果仅在支持悬停的设备上生效，避免触摸设备残留悬浮态 */
+@media (hover: hover) {
+    .mainContainer:hover {
+        box-shadow: 0 0 clamp(5px, 0.65vmin, 9px) clamp(1px, 0.15vmin, 2px) lightgray;
+        -webkit-box-shadow: 0 0 clamp(5px, 0.65vmin, 9px) clamp(1px, 0.15vmin, 2px) lightgray;
+        transform: translateY(-5%);
+        -ms-transform: translateY(-5%);
+        -webkit-transform: translateY(-5%);
+    }
+
+    .mainContainer:hover img {
+        box-shadow: 0 0 clamp(4px, 0.55vmin, 8px) clamp(1px, 0.25vmin, 3px) lightgray;
+        -webkit-box-shadow: 0 0 clamp(4px, 0.55vmin, 8px) clamp(1px, 0.25vmin, 3px) lightgray;
+    }
+
+    .mainContainer:hover .rowLineClass {
+        padding: 0 50%;
+        margin-top: clamp(2px, 0.25vmin, 4px);
+        height: clamp(2px, 0.22vmin, 3px);
+        background-color: #b95651;
+    }
 }
