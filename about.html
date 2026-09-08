@@ -24,16 +24,25 @@
         <header>
             <a class="LOGO" href="https://mushnest.com/">mushnest</a>
             <div class="headerButton">
-                <a href="#cafe">赞赏</a>
+                <a href="#cafe" class="donateQrButton">赞赏
+                    <img src="images/qrcode_mushnest.png" alt="赞赏二维码" aria-hidden="true">
+                </a>
                 <a href="about.html">关于</a>
             </div>
         </header>
         <main>
-            <div class="indexVersion">v6.0.0</div>
+            <div class="indexVersion">6.1.0</div>
             <h1>关于我们</h1>
             <div class="mainContainer">
-                <img src="images/qrcode_mushnest.png">
-                <h2>联系方式</h2>
+                <img src="images/qrcode_mushnest_2.png">
+                <h2>简介 &#128221;</h2>
+                <div>mushnest</div>
+                <div class="rowLineClass"></div>
+                <div>始于2019年，致力于通过表情给大家带来欢乐。现在已有像素方块头和像素猪粉粉两大系列</div>
+            </div>
+            <div class="mainContainer">
+                <img src="images/qrcode_mushnest_2.png">
+                <h2>联系方式 &#128140;</h2>
                 <div>邮箱</div>
                 <div class="rowLineClass"></div>
                 <div>mushnest@outlook.com</div>
@@ -43,11 +52,37 @@
                 <h2>赞赏 &#127873;</h2>
                 <div>赞赏途径</div>
                 <div class="rowLineClass"></div>
-                <div>微信扫码左侧二维码，进入任意专辑页面进行赞赏吧</div>
+                <div>微信扫描左侧二维码，进入任意专辑页面进行赞赏吧</div>
             </div>
         </main>
         <footer>
-            <div>Copyright © 2020 - 2024 mushnest. All Rights Reserved.</div>
+            <div>Copyright © 2019 - 2026 mushnest. All Rights Reserved.</div>
         </footer>
+        <script>
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    document.body.classList.add("bgBlobsFrozen");
+                }, 5000);
+            });
+        </script>
+        <script>
+            (function () {
+                var donateLinks = document.querySelectorAll(".donateQrButton");
+                var cafeCard = document.getElementById("cafe");
+                if (!donateLinks.length || !cafeCard) return;
+
+                function pulseCafe() {
+                    if (cafeCard.classList.contains("donatePulse")) return;
+                    cafeCard.classList.add("donatePulse");
+                    setTimeout(function () {
+                        cafeCard.classList.remove("donatePulse");
+                    }, 1900);
+                }
+
+                for (var i = 0; i < donateLinks.length; i++) {
+                    donateLinks[i].addEventListener("click", pulseCafe);
+                }
+            })();
+        </script>
     </body>
 </html>
