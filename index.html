@@ -24,12 +24,14 @@
         <header>
             <a class="LOGO" href="https://mushnest.com/">mushnest</a>
             <div class="headerButton">
-                <a href="#cafe">赞赏</a>
+                <a href="#cafe" class="donateQrButton">赞赏
+                    <img src="images/qrcode_mushnest.png" alt="赞赏二维码" aria-hidden="true">
+                </a>
                 <a href="about.html">关于</a>
             </div>
         </header>
         <main>
-            <div class="indexVersion">v6.0.0</div>
+            <div class="indexVersion">v6.1.0</div>
             <h1>表情专辑</h1>
             <div class="mainContainer">
                 <img src="images/qrcode_BH1.png">
@@ -67,16 +69,26 @@
                 <div>吃好、玩好、喝好、睡好，美好生活每一天～</div>
             </div>
             <div class="mainContainer">
-                <img src="images/qrcode_PPP2.png">
+                <img src="images/qrcode_BH4.png">
                 <h2>像素方块头4</h2>
                 <div>表情数量：16</div>
                 <div class="rowLineClass"></div>
                 <div>从前有个方块头，现在，Ta还叫方块头～</div>
             </div>
             <div class="mainContainer">
-                <img src="images/qrcode_mushnest.png">
+                <img src="images/qrcode_mushnest_2.png">
+                <h2>表情单品</h2>
+                <div>表情数量：2</div>
+                <div class="rowLineClass"></div>
+                <div>现已有“新年快乐”和“红包拿来”2个表情单品，未来将继续推出更多表情单品，敬请期待～</div>
+            </div>
+            <div class="mainContainer">
+                <span class="mysteryQr">
+                    <img src="images/qrcode_mushnest_2.png" alt="" aria-hidden="true">
+                    <span class="mysteryQrMark" aria-hidden="true">?</span>
+                </span>
                 <h2>像素&nbsp;？？？</h2>
-                <div>表情数量：16</div>
+                <div>表情数量：？？？</div>
                 <div class="rowLineClass"></div>
                 <div>C&nbsp;O&nbsp;M&nbsp;I&nbsp;N&nbsp;G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S&nbsp;O&nbsp;O&nbsp;N</div>
             </div>
@@ -85,11 +97,37 @@
                 <h2>赞赏 &#127873;</h2>
                 <div>赞赏途径</div>
                 <div class="rowLineClass"></div>
-                <div>微信扫码左侧二维码，进入任意专辑页面进行赞赏吧</div>
+                <div>微信扫描左侧二维码，进入任意专辑页面进行赞赏吧</div>
             </div>
         </main>
         <footer>
-            <div>Copyright © 2020 - 2026 mushnest. All Rights Reserved.</div>
+            <div>Copyright © 2019 - 2026 mushnest. All Rights Reserved.</div>
         </footer>
+        <script>
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    document.body.classList.add("bgBlobsFrozen");
+                }, 5000);
+            });
+        </script>
+        <script>
+            (function () {
+                var donateLinks = document.querySelectorAll(".donateQrButton");
+                var cafeCard = document.getElementById("cafe");
+                if (!donateLinks.length || !cafeCard) return;
+
+                function pulseCafe() {
+                    if (cafeCard.classList.contains("donatePulse")) return;
+                    cafeCard.classList.add("donatePulse");
+                    setTimeout(function () {
+                        cafeCard.classList.remove("donatePulse");
+                    }, 1900);
+                }
+
+                for (var i = 0; i < donateLinks.length; i++) {
+                    donateLinks[i].addEventListener("click", pulseCafe);
+                }
+            })();
+        </script>
     </body>
 </html>
