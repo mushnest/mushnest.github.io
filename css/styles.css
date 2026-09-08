@@ -1,4 +1,8 @@
 :root {
+    --font-sans: "Avenir Next", "Nunito Sans", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB",
+        "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    --text-ink: #463034;
     --header-height: clamp(52px, 2.7vmax, 64px);
     --card-space: clamp(18px, 3.5vmin, 40px);
     --card-radius: clamp(16px, 3.7vmin, 40px);
@@ -9,7 +13,11 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: var(--font-sans);
+    color: var(--text-ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 .bgGradient {
@@ -99,6 +107,11 @@ body {
     background: radial-gradient(circle, rgba(72, 203, 190, 0.68), transparent 68%);
     animation: blobDriftWarm 12s ease-in-out infinite alternate;
     animation-delay: -5s;
+}
+
+body.bgBlobsFrozen .bgGradient,
+body.bgBlobsFrozen .bgBlob {
+    animation-play-state: paused;
 }
 
 @keyframes bgGradientShift {
@@ -222,10 +235,10 @@ header {
     border-radius: clamp(14px, 2.2vmin, 24px);
     box-shadow:
         inset 0 1px 1px rgba(255, 255, 255, 0.7),
-        0 clamp(2px, 0.35vmin, 5px) clamp(6px, 1vmin, 12px) rgba(130, 90, 95, 0.14);
+        0 0 clamp(6px, 1vmin, 12px) rgba(130, 90, 95, 0.14);
     -webkit-box-shadow:
         inset 0 1px 1px rgba(255, 255, 255, 0.7),
-        0 clamp(2px, 0.35vmin, 5px) clamp(6px, 1vmin, 12px) rgba(130, 90, 95, 0.14);
+        0 0 clamp(6px, 1vmin, 12px) rgba(130, 90, 95, 0.14);
     transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;
 }
@@ -237,13 +250,13 @@ header {
     border-color: rgba(255, 255, 255, 0.85);
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        0 clamp(4px, 0.6vmin, 8px) clamp(10px, 1.5vmin, 18px) rgba(251, 107, 90, 0.34);
+        0 0 clamp(10px, 1.5vmin, 18px) rgba(251, 107, 90, 0.34);
     -webkit-box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        0 clamp(4px, 0.6vmin, 8px) clamp(10px, 1.5vmin, 18px) rgba(251, 107, 90, 0.34);
-    transform: translateY(-1px) scale(1.02);
-    -ms-transform: translateY(-1px) scale(1.02);
-    -webkit-transform: translateY(-1px) scale(1.02);
+        0 0 clamp(10px, 1.5vmin, 18px) rgba(251, 107, 90, 0.34);
+    transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
 }
 
 .headerButton a:active {
@@ -251,13 +264,45 @@ header {
     transform: translateY(1px) scale(0.96);
     -ms-transform: translateY(1px) scale(0.96);
     -webkit-transform: translateY(1px) scale(0.96);
-    box-shadow: 0 1px 3px rgba(180, 90, 80, 0.25);
-    -webkit-box-shadow: 0 1px 3px rgba(180, 90, 80, 0.25);
+    box-shadow: 0 0 3px rgba(180, 90, 80, 0.25);
+    -webkit-box-shadow: 0 0 3px rgba(180, 90, 80, 0.25);
 }
 
 .headerButton a:focus-visible {
     outline: 2px solid rgba(251, 107, 90, 0.8);
     outline-offset: 2px;
+}
+
+.donateQrButton {
+    position: relative;
+}
+
+.donateQrButton img {
+    position: absolute;
+    top: calc(100% + clamp(6px, 0.8vmin, 10px));
+    right: 0;
+    z-index: 20;
+    width: clamp(112px, 14vmin, 168px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    box-sizing: border-box;
+    padding: clamp(4px, 0.6vmin, 8px);
+    background-color: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: clamp(10px, 1.6vmin, 16px);
+    box-shadow:
+        0 0 clamp(12px, 2vmin, 24px) rgba(110, 70, 80, 0.22);
+    -webkit-box-shadow:
+        0 0 clamp(12px, 2vmin, 24px) rgba(110, 70, 80, 0.22);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    -webkit-transition: opacity 0.25s ease;
+}
+
+.donateQrButton:hover img {
+    opacity: 1;
 }
 
 .indexVersion {
@@ -323,7 +368,10 @@ h1 {
     justify-self: start;
     -webkit-justify-self: start;
     font-size: clamp(18px, 2.5vmin, 27px);
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: rgba(58, 36, 40, 0.96);
     text-align: center;
     overflow-wrap: anywhere;
 }
@@ -336,7 +384,10 @@ h1 {
     justify-self: start;
     -webkit-justify-self: start;
     font-size: clamp(13px, 1.3vmin, 14px);
-    color: dimgray;
+    font-weight: 500;
+    line-height: 1.7;
+    letter-spacing: 0.08em;
+    color: rgba(122, 98, 100, 0.7);
 }
 
 .mainContainer > div:nth-of-type(2) {
@@ -362,7 +413,45 @@ h1 {
     justify-self: start;
     -webkit-justify-self: start;
     font-size: clamp(14px, 1.5vmin, 16px);
+    line-height: 1.75;
+    letter-spacing: 0.02em;
+    color: rgba(86, 64, 67, 0.86);
     overflow-wrap: anywhere;
+}
+
+.mainContainer > .mysteryQr {
+    position: relative;
+    display: block;
+    grid-area: QRcode;
+    align-self: center;
+    width: var(--qr-size);
+    height: var(--qr-size);
+}
+
+.mainContainer > .mysteryQr > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: blur(clamp(2px, 0.4vmin, 4px));
+    -webkit-filter: blur(clamp(2px, 0.4vmin, 4px));
+}
+
+.mainContainer > .mysteryQr > .mysteryQrMark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: calc(var(--qr-size) * 0.58);
+    font-weight: 900;
+    line-height: 1;
+    color: #171717;
+    text-shadow:
+        0 0 clamp(2px, 0.35vmin, 4px) rgba(255, 255, 255, 0.9),
+        0 0 clamp(6px, 1vmin, 12px) rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    user-select: none;
 }
 
 #cafe {
@@ -376,6 +465,27 @@ h1 {
 
     #cafe {
         background-color: rgba(255, 210, 218, 0.72);
+    }
+}
+
+#cafe.donatePulse {
+    animation: donatePulse 1.3s ease-in-out;
+    will-change: transform, background-color;
+}
+
+@keyframes donatePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+        background-color: rgba(244, 112, 138, 0.9);
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.85),
+            0 clamp(8px, 1.2vmin, 16px) clamp(20px, 3.2vmin, 40px) rgba(215, 90, 110, 0.32);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
